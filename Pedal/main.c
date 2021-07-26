@@ -24,6 +24,7 @@ int process (jack_nframes_t nframes, void* settingsChorus)
     {
         //out[i]=in[i];
         //printf("%s",content);
+        
         if (content != NULL) {
             if (strcmp(content, "delayOn") == 0) {
                 delay(in, out, i);
@@ -47,9 +48,8 @@ int process (jack_nframes_t nframes, void* settingsChorus)
             {
                 chorus2(in, out, i, settingsChorus);//add settings
             }
-            //else
-
-                //clean(in,out,i);
+            else
+                clean(in,out,i);
             //content = NULL;
 
         }
@@ -80,6 +80,7 @@ int main (int argc, char *argv[])
     settingsChorus->compt = 0;
 
     pthread_create(&thread_id, NULL, myThreadFun, NULL);
+
     /* open a client connection to the JACK server */
     //sinus(settingsChorus);
     client = jack_client_open (client_name, options, &status, server_name);

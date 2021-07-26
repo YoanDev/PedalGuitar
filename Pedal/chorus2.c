@@ -1,10 +1,11 @@
 
-typedef struct{
+struct SettingsChorus{ 
     int compt;
     int f;
     float amplitude;
     float tab[10000];
-} SettingsChorus;
+};
+typedef struct SettingsChorus SettingsChorus;
 
 float_t Delay_Buffer_chorus[DELAY_MAX];
 uint32_t DelayCounter_chorus = 0;
@@ -33,13 +34,13 @@ void chorus2(jack_default_audio_sample_t *in,jack_default_audio_sample_t *out, i
     //printf("%f\n",Delay_Buffer_chorus[DelayCounter_chorus]);
 }
 
-void sinus (struct Settings *settings)
+void sinus (SettingsChorus *settings)
 {
-    SettingsChorus *actualSettings = settings;
+    SettingsChorus actualSettings = *settings;
     int i;
     for (i = 0; i <= 10000; i++)
     {
-        actualSettings->tab[i] = actualSettings->amplitude * sin((2 * PI * actualSettings->f * ((float) i / 10000))) / 2;
-        printf("%f\n",actualSettings->tab[i]);
+        actualSettings.tab[i] = actualSettings.amplitude * sin((2 * PI * actualSettings.f * ((float) i / 10000))) / 2;
+        printf("%f\n",actualSettings.tab[i]);
     }
 }
