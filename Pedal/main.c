@@ -4,6 +4,7 @@
 #include "looper.c"
 #include "chorus2.c"
 #include <pthread.h>
+#include <unistd.h>
 
 /**
  * The process callback for this JACK application is called in a
@@ -13,6 +14,17 @@
  * port to its output port. It will exit when stopped by
  * the user (e.g. using Ctrl-C on a unix-ish operating system)
  */
+
+int playSound(char *filename)
+{
+    char command[256];
+    int status;
+    sprintf(command, "aplay -c 1 -q -t wav %s",filename);
+
+    status = system(command);
+    return status;
+}
+
 int process (jack_nframes_t nframes, void* settingsChorus)
 {
     jack_default_audio_sample_t *in, *out;
@@ -22,8 +34,9 @@ int process (jack_nframes_t nframes, void* settingsChorus)
     int state;
     for (i = 0; i < nframes; i++)
     {
-        //out[i]=in[i];
+        out[i]=in[i];
         //printf("%s",content);
+        
         
         if (content != NULL) {
             if (strcmp(content, "delayOn") == 0) {
@@ -57,6 +70,8 @@ int process (jack_nframes_t nframes, void* settingsChorus)
     return 0;
 }
 
+
+
 /**
  * JACK calls this shutdown_callback if the server ever shuts down or
  * decides to disconnect the client.
@@ -64,6 +79,15 @@ int process (jack_nframes_t nframes, void* settingsChorus)
 void jack_shutdown (void *arg)
 {
     exit (1);
+}
+int a =0;
+void *myThreadFun2(void *vargp){
+    //while(1)
+    //{
+        printf("%d \n",a);
+        playSound("Bass.wav");
+        sleep(1);
+    //}
 }
 
 int main (int argc, char *argv[])
@@ -74,12 +98,15 @@ int main (int argc, char *argv[])
     jack_options_t options = JackNullOption;
     jack_status_t status;
     pthread_t thread_id;
+    pthread_t thread_id2;
     SettingsChorus *settingsChorus = malloc(sizeof *settingsChorus);
     settingsChorus->f = 1;
     settingsChorus->amplitude = 6;
     settingsChorus->compt = 0;
+    
+    pthread_create(&thread_id2, NULL, myThreadFun2, NULL);
 
-    pthread_create(&thread_id, NULL, myThreadFun, NULL);
+    //pthread_create(&thread_id, NULL, myThreadFun, NULL);
 
     /* open a client connection to the JACK server */
     //sinus(settingsChorus);
