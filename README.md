@@ -31,13 +31,21 @@ Les étapes pour installer votre programme....
 Dites ce qu'il faut faire...
 
 git clone https://github.com/YoanDev/PedalGuitar.git
+cd PedalGuitar
+cd Pedal
+mkdir build
+cd build
+cmake ..
+make 
+
 
 
 Ensuite vous pouvez montrer ce que vous obtenez au final...
 
 ## Démarrage
 
-Dites comment faire pour lancer votre projet
+cd build
+./PedalGuitar
 
 
 
