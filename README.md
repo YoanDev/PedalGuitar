@@ -43,8 +43,7 @@ Dites comment faire pour lancer votre projet
 
 ## Versions
 **Dernière version :** 1.0
-Liste des versions : [Cliquer pour afficher](https://github.com/your/project-name/tags)
-_(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
+Liste des versions : [Cliquer pour afficher](https://github.com/YoanDev/PedalGuitar/tags)
 
 ## Auteurs
 * **Yoan Molia* _alias_ [@YoanDev](https://github.com/YoanDev)
