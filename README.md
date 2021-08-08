@@ -12,14 +12,17 @@ Ce projet consiste à devélopper une pédale de guitare multi-effets.
 
 ### Pré-requis
 
-Ce qu'il est requis pour commencer avec votre projet...
-
-Pour ce projet j'utilise comme matériel :
+Matériel :
   - Une raspberry pi 4
   - Un shield Pisound
   - Une enceinte
   - Un câble jack 6.35mm
   - Une guitare
+
+Librairie :
+  - libjack-jackd2-dev
+  - Jackd
+  - cmake
 
 ### Installation
 
@@ -36,20 +39,10 @@ Ensuite vous pouvez montrer ce que vous obtenez au final...
 
 Dites comment faire pour lancer votre projet
 
-## Fabriqué avec
-
-Entrez les programmes/logiciels/ressources que vous avez utilisé pour développer votre projet
-
-_exemples :_
-* [Materialize.css](http://materializecss.com) - Framework CSS (front-end)
-* [Atom](https://atom.io/) - Editeur de textes
 
 
 ## Versions
-Listez les versions ici 
-_exemple :_
-**Dernière version stable :** 5.0
-**Dernière version :** 5.1
+**Dernière version :** 1.0
 Liste des versions : [Cliquer pour afficher](https://github.com/your/project-name/tags)
 _(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
 
