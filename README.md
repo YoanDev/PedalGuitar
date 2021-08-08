@@ -5,10 +5,7 @@ _(juste en dessous des badges sympatiques à placer)_
 
 Ce projet consiste à devélopper une pédale de guitare multi-effets.
 
-
 ## Pour commencer
-
-
 
 ### Pré-requis
 
@@ -26,10 +23,6 @@ Librairie :
 
 ### Installation
 
-Les étapes pour installer votre programme....
-
-Dites ce qu'il faut faire...
-
 git clone https://github.com/YoanDev/PedalGuitar.git
 cd PedalGuitar
 cd Pedal
@@ -38,16 +31,10 @@ cd build
 cmake ..
 make 
 
-
-
-Ensuite vous pouvez montrer ce que vous obtenez au final...
-
 ## Démarrage
 
 cd build
 ./PedalGuitar
-
-
 
 ## Versions
 **Dernière version :** 1.0
