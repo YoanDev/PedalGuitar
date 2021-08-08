@@ -3,19 +3,23 @@ _(juste en dessous des badges sympatiques à placer)_
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
 
-Une petite description du projet
+Ce projet consiste à devélopper une pédale de guitare multi-effets.
+
 
 ## Pour commencer
 
-Entrez ici les instructions pour bien débuter avec votre projet...
+
 
 ### Pré-requis
 
 Ce qu'il est requis pour commencer avec votre projet...
 
-- Programme 1
-- Programme 2
-- etc...
+Pour ce projet j'utilise comme matériel :
+  - Une raspberry pi 4
+  - Un shield Pisound
+  - Une enceinte
+  - Un câble jack 6.35mm
+  - Une guitare
 
 ### Installation
 
@@ -52,8 +56,4 @@ _(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
 ## Auteurs
 * **Yoan Molia* _alias_ [@YoanDev](https://github.com/YoanDev)
 
-
-## License
-
-Ce projet est sous licence ``exemple: WTFTPL`` - voir le fichier [LICENSE.md](LICENSE.md) pour plus d'informations
 
