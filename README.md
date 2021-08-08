@@ -24,7 +24,7 @@ Librairie :
 ### Installation
 
 git clone https://github.com/YoanDev/PedalGuitar.git
-cd PedalGuitar
+.cd PedalGuitar
 cd Pedal
 mkdir build
 cd build
