@@ -1,7 +1,7 @@
 # PedalGuitar
 _(juste en dessous des badges sympatiques à placer)_
 
-[![forthebadge](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
+[![forthebadge](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)](http://forthebadge.com) 
 
 Ce projet consiste à devélopper une pédale de guitare multi-effets.
 
