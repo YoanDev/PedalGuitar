@@ -1,5 +1,4 @@
 # PedalGuitar
-_(juste en dessous des badges sympatiques à placer)_
 
 [![forthebadge](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)](http://forthebadge.com) 
 
@@ -24,7 +23,7 @@ Librairie :
 
 Application mobile :
    - https://x.thunkable.com/copy/f37539c6a175bd09d63689b29c4a01f6 (expire le 8 oct 2021)
-      - Il est possible d'utiliser la pédale sans application mobile
+      - Il est possible d'utiliser la pédale sans application mobile (voir l'onglet Démarrage)
 
 ### Installation
 
@@ -37,8 +36,9 @@ Sur la raspberry pi allez dans le terminal et faites les commandes :
   - cmake ..
   - make 
 
-Sur le projet de l'application mobile allez dans "Blocks" :
+Sur le projet de l'application mobile, allez dans "Blocks" :
   - Changer les IP de chaque bloc par l'ip de votre raspberry pi
+
 
 ## Démarrage
 
