@@ -15,11 +15,16 @@ Matériel :
   - Une enceinte
   - Un câble jack 6.35mm
   - Une guitare
+  - Un téléphone ou un ordinateur
 
 Librairie :
   - libjack-jackd2-dev
   - Jackd
   - cmake
+
+Application mobile :
+   - https://x.thunkable.com/copy/f37539c6a175bd09d63689b29c4a01f6 (expire le 8 oct 2021)
+      - Il est possible d'utiliser la pédale sans application mobile
 
 ### Installation
 
