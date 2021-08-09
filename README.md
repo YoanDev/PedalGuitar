@@ -28,7 +28,7 @@ Application mobile :
 
 ### Installation
 
-Terminal :
+Sur la raspberry pi allez dans le terminal et faites les commandes:
   - git clone https://github.com/YoanDev/PedalGuitar.git
   - cd PedalGuitar
   - cd Pedal
@@ -36,6 +36,8 @@ Terminal :
   - cd build
   - cmake ..
   - make 
+
+Sur l'application mobile 
 
 ## Démarrage
 
