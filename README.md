@@ -28,7 +28,7 @@ Application mobile :
 
 ### Installation
 
-Sur la raspberry pi allez dans le terminal et faites les commandes:
+Sur la raspberry pi allez dans le terminal et faites les commandes :
   - git clone https://github.com/YoanDev/PedalGuitar.git
   - cd PedalGuitar
   - cd Pedal
@@ -37,7 +37,8 @@ Sur la raspberry pi allez dans le terminal et faites les commandes:
   - cmake ..
   - make 
 
-Sur l'application mobile 
+Sur le projet de l'application mobile allez dans "Blocks" :
+  - Changer les IP de chaque bloc par l'ip de votre raspberry pi
 
 ## Démarrage
 
