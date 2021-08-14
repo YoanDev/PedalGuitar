@@ -1,10 +1,13 @@
 #include "delay.c"
 #include "saturation.c"
 #include "serveurTcp.c"
-#include "looper.c"
+#include "records.c"
+#include "clean.c"
 #include "chorus2.c"
 #include <pthread.h>
 #include <unistd.h>
+
+
 
 /**
  * The process callback for this JACK application is called in a
@@ -15,62 +18,53 @@
  * the user (e.g. using Ctrl-C on a unix-ish operating system)
  */
 
-int playSound(char *filename)
-{
-    char command[256];
-    int status;
-    sprintf(command, "aplay -c 1 -q -t wav %s",filename);
+jack_port_t *input_port;
+jack_port_t *output_port;
+jack_client_t *client;
+int state =0;
 
-    status = system(command);
-    return status;
-}
-
-int process (jack_nframes_t nframes, void* settingsChorus)
+int process (jack_nframes_t nframes)
 {
     jack_default_audio_sample_t *in, *out;
     in = jack_port_get_buffer (input_port, nframes);
     out = jack_port_get_buffer (output_port, nframes);
     int i;
-    int state;
+    
     for (i = 0; i < nframes; i++)
-    {
-        out[i]=in[i];
-        //printf("%s",content);
-        
-        
-        if (content != NULL) {
-            if (strcmp(content, "delayOn") == 0) {
+    {             
+        if (content != NULL){       
+            if (strcmp(content, "1") == 0) {
                 delay(in, out, i);
             }
-            else if (strcmp(content, "satOn") == 0) {
+            else if (strcmp(content, "2") == 0) {
                 saturation(in, out, i);
             }
-            else if (strcmp(content, "loopStart") == 0) {
-                state = 0;
-                looper(in, out, i, state);
-            }
-            else if (strcmp(content, "loopStop") == 0) {
+            else if (strcmp(content, "3") == 0) {
                 state = 1;
-                looper(in, out, i, state);
+                records(in, out, i, state);
             }
-            else if (strcmp(content, "clean") == 0)
+            else if (strcmp(content, "4") == 0) {
+                state = 2;
+                records(in, out, i, state);
+            }
+            else if (strcmp(content, "5") == 0) {
+                state = 0;
+                records(in, out, i, state);
+            }
+            else if (strcmp(content, "6") == 0)
             {
                 clean(in, out, i);
-            }
-            else if (strcmp(content, "chorus") == 0)
-            {
-                chorus2(in, out, i, settingsChorus);//add settings
-            }
-            else
+            }         
+            else{
                 clean(in,out,i);
-            //content = NULL;
-
+            }    
         }
+        else
+            out[i]=in[i];     
     }
+    
     return 0;
 }
-
-
 
 /**
  * JACK calls this shutdown_callback if the server ever shuts down or
@@ -79,15 +73,6 @@ int process (jack_nframes_t nframes, void* settingsChorus)
 void jack_shutdown (void *arg)
 {
     exit (1);
-}
-int a =0;
-void *myThreadFun2(void *vargp){
-    //while(1)
-    //{
-        printf("%d \n",a);
-        playSound("Bass.wav");
-        sleep(1);
-    //}
 }
 
 int main (int argc, char *argv[])
@@ -98,15 +83,13 @@ int main (int argc, char *argv[])
     jack_options_t options = JackNullOption;
     jack_status_t status;
     pthread_t thread_id;
-    pthread_t thread_id2;
+
     SettingsChorus *settingsChorus = malloc(sizeof *settingsChorus);
     settingsChorus->f = 1;
     settingsChorus->amplitude = 6;
     settingsChorus->compt = 0;
-    
-    pthread_create(&thread_id2, NULL, myThreadFun2, NULL);
-
-    //pthread_create(&thread_id, NULL, myThreadFun, NULL);
+      
+    pthread_create(&thread_id, NULL, myThreadFun, NULL);
 
     /* open a client connection to the JACK server */
     //sinus(settingsChorus);
@@ -131,7 +114,7 @@ int main (int argc, char *argv[])
        there is work to be done.
     */
 
-    jack_set_process_callback (client, process, settingsChorus);
+    jack_set_process_callback (client, process, NULL);
 
     /* tell the JACK server to call `jack_shutdown()' if
        it ever shuts down, either entirely, or if it

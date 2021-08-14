@@ -1,11 +1,14 @@
 #include <netinet/in.h>
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define MYPORT 8080
 #define BACKLOG 10
 
 char buffer[1024];
 char *content;
+
 
 void *myThreadFun(void *vargp){
     int flag = 1;
@@ -15,7 +18,7 @@ void *myThreadFun(void *vargp){
     struct sockaddr_in my_addr;
     struct sockaddr_in cli_addr;
     int nb_recv;
-
+    
     if ( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
         perror("Erreur de création de la socket\n");
@@ -36,35 +39,20 @@ void *myThreadFun(void *vargp){
     {
         perror("Ne peut effectuer un bind de l’adresse locale (nommage de la socket)");
         exit (EXIT_FAILURE);
-    }
-
-    listen(sockfd, BACKLOG);
-    sin_size = sizeof(struct sockaddr_in);
-    do{
-        new_fd = accept(sockfd,(struct sockaddr *) &cli_addr, &sin_size);
-
+    }      
+        listen(sockfd, BACKLOG);
+        sin_size = sizeof(struct sockaddr_in);
+        new_fd = accept(sockfd,(struct sockaddr *) &cli_addr, &sin_size);   
+    do{          
+        //memset(buffer, 0, sizeof (buffer));
         nb_recv = recv(new_fd, buffer, sizeof(buffer), 0);
         if(nb_recv>0)
         {
-            content = strstr(buffer, "POST /");
-            if (content != NULL) {
-                content += 6; // Offset by 4 bytes to start of content
-
-            }
-            else{
-                content = buffer; // Didn't find end of header, write out everything
-
-            }
-            char *positionEntree2 = NULL;
-            positionEntree2 = strchr(content, ' ');
-            if (positionEntree2 != NULL) {
-                *positionEntree2 = '\0'; // On remplace ce caractère par \0
-            }
-            printf("%s\n",content);
-
-        }
+            content = buffer; // Didn't find end of header, write out everything
+            printf("%s\n",content);  
+        }   
+        nb_recv = -1;   
     }while(1);
-
     close(sockfd);
     return 0;
 }

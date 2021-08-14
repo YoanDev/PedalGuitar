@@ -13,11 +13,6 @@
 #include <jack/jack.h>
 #include <math.h>
 
-jack_port_t *input_port;
-jack_port_t *output_port;
-jack_client_t *client;
-
-
 void saturation(jack_default_audio_sample_t *in,jack_default_audio_sample_t *out, int i)
 {
     float* channelData = in;
@@ -27,11 +22,7 @@ void saturation(jack_default_audio_sample_t *in,jack_default_audio_sample_t *out
     //printf("%f \n", channelData[i]);
 }
 
-void clean(jack_default_audio_sample_t *in,jack_default_audio_sample_t *out, int i)
-{
-    float* channelData = in;
-    out[i] = channelData[i];
-}
+
 
 
 

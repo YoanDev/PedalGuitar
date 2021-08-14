@@ -1,3 +1,4 @@
+#define PI 3.14
 
 struct SettingsChorus{ 
     int compt;
