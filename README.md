@@ -1,14 +1,10 @@
 # PedalGuitar
-_(juste en dessous des badges sympatiques à placer)_
 
 [![forthebadge](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)](http://forthebadge.com) 
 
 Ce projet consiste à devélopper une pédale de guitare multi-effets.
 
-
 ## Pour commencer
-
-
 
 ### Pré-requis
 
@@ -18,28 +14,36 @@ Matériel :
   - Une enceinte
   - Un câble jack 6.35mm
   - Une guitare
+  - Un téléphone ou un ordinateur
 
 Librairie :
   - libjack-jackd2-dev
   - Jackd
   - cmake
 
+Application mobile :
+   - https://x.thunkable.com/copy/f37539c6a175bd09d63689b29c4a01f6 (expire le 8 oct 2021)
+      - Il est possible d'utiliser la pédale sans application mobile (voir l'onglet Démarrage)
+
 ### Installation
 
-Les étapes pour installer votre programme....
+Sur la raspberry pi allez dans le terminal et faites les commandes :
+  - git clone https://github.com/YoanDev/PedalGuitar.git
+  - cd PedalGuitar
+  - cd Pedal
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make 
 
-Dites ce qu'il faut faire...
+Sur le projet de l'application mobile, allez dans "Blocks" :
+  - Changer les IP de chaque bloc par l'ip de votre raspberry pi
 
-git clone https://github.com/YoanDev/PedalGuitar.git
-
-
-Ensuite vous pouvez montrer ce que vous obtenez au final...
 
 ## Démarrage
 
-Dites comment faire pour lancer votre projet
-
-
+cd build
+./PedalGuitar
 
 ## Versions
 **Dernière version :** 1.0
