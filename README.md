@@ -22,8 +22,7 @@ Librairie :
   - cmake
 
 Application mobile :
-   - https://x.thunkable.com/copy/f37539c6a175bd09d63689b29c4a01f6 (expire le 8 oct 2021)
-      - Il est possible d'utiliser la pédale sans application mobile (voir l'onglet Démarrage)
+   - 
 
 ### Installation
 
@@ -35,9 +34,6 @@ Sur la raspberry pi allez dans le terminal et faites les commandes :
   - cd build
   - cmake ..
   - make 
-
-Sur le projet de l'application mobile, allez dans "Blocks" :
-  - Changer les IP de chaque bloc par l'ip de votre raspberry pi
 
 
 ## Démarrage
