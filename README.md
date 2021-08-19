@@ -48,6 +48,7 @@ Sur le smartphone :
 Vous pouvez maintenant envoyer les commandes pour changer les effets de la pédale.
 
 Les commandes sont :
+
 1: Delay
 
 2: Saturation 
