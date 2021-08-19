@@ -22,7 +22,7 @@ Librairie :
   - cmake
 
 Application mobile :
-   - 
+   - Télécharger une application mobile qui permet d'envoyer des commandes TCP à un serveur
 
 ### Installation
 
@@ -37,9 +37,25 @@ Sur la raspberry pi allez dans le terminal et faites les commandes :
 
 
 ## Démarrage
+Sur la raspberry pi :
+- cd build
+- ./PedalGuitar
 
-cd build
-./PedalGuitar
+Sur le smartphone :
+- Rentrer l'ip de votre raspberry pi
+- Rentrer le port de votre serveur TCP
+
+Vous pouvez maintenant envoyer les commandes pour changer les effets de la pédale.
+
+Les commandes sont :
+1: Delay
+2: Saturation 
+3: Rec
+4: Stop
+5 : Play
+6 : Clean 
+
+
 
 ## Versions
 **Dernière version :** 1.0
