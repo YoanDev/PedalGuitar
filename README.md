@@ -49,10 +49,15 @@ Vous pouvez maintenant envoyer les commandes pour changer les effets de la péda
 
 Les commandes sont :
 1: Delay
+
 2: Saturation 
+
 3: Rec
+
 4: Stop
+
 5 : Play
+
 6 : Clean 
 
 
